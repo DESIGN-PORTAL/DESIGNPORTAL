@@ -1,0 +1,51 @@
+// 背景图片
+#bgImg(@url, @size: 100% 100%, @position: center center, @repeat: no-repeat) {
+  background-image: @url;
+  background-size: @size;
+  background-position: @position;
+  background-repeat: @repeat;
+}
+
+#btn() {
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+#btnClose(@size: 30px, @color: #666, @colorActived: @color-main) {
+  display: block;
+  width: @size;
+  height: @size;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: @color;
+  }
+
+  &:before {
+    height: 1px;
+  }
+
+  &:after {
+    width: 1px;
+  }
+
+  &:hover {
+    &:before {
+      background-color: @colorActived;
+    }
+  
+    &:after {
+      background-color: @colorActived;
+    }
+  }
+}

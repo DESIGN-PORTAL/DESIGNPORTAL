@@ -1,0 +1,41 @@
+@import './assets/css/mixins.less';
+
+* {
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    position: absolute;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: 0 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    background: rgba(0,0,0,.2);
+    position: absolute;
+  }
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
+    position: absolute;
+  }
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
