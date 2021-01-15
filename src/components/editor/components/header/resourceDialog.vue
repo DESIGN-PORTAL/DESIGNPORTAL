@@ -11,7 +11,7 @@
         </ul>
 
         <div class="upload-wrapper" @click="isShow = true">
-          <BUpload accept="image/jpeg,image/png" :limit="2" @change="handleFileChange">
+          <BUpload accept=".jpg,.jpeg,.png" :limit="2" @change="handleFileChange">
             <BButton type="primary" style="width: 160px;">
               本地上传
             </BButton>
@@ -59,6 +59,7 @@
 <script>
 import { fileToBlob, getImageInfo } from '../../assets/js/utils';
 import { getList } from '../../services/file';
+import { uploadResource } from '../../services/file';
 
 export default {
   inject: ['editor'],
@@ -113,7 +114,7 @@ export default {
     handleFileChange(file) {
       const formData = new FormData();
       formData.append('file', file);
-      this.$store.dispatch('common/uploadImg', formData).then((res) => {
+      uploadResource(formData).then((res) => {
         if (this.isShow) {
           this.imgInit(file, res);
           this.toClose();
