@@ -10,11 +10,11 @@
       >
         {{ menu.title }}
       </a>
+
     </div>
     <div class="pages-wrapper">
       <header class="page-header">
-        <!-- <BButton style="height: 50px; border-radius: 25px;font-size: 20px" type="primary" shape="round">创建新作品</BButton> -->
-        <!-- <iframe src="https://ghbtns.com/github-btn.html?user=eggjs&repo=egg&type=star&count=true" frameborder="0"></iframe> -->
+        <iframe src="https://ghbtns.com/github-btn.html?user=DESIGN-PORTAL&repo=DESIGNPORTAL&type=star&count=true&size=large" scrolling="0" frameborder="0"></iframe>
       </header>
 
       <main>
@@ -174,6 +174,13 @@ a {
       box-shadow: 0 0 5px 0 #ccc;
       background-color: #ffffff;
       text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      > iframe {
+        width: 250px;
+        height: 30px;
+      }
     }
 
     > main {
