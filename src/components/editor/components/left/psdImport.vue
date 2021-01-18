@@ -86,6 +86,8 @@ export default {
 
       this.scale = width / 375;
 
+      this.editor.saveHistory();
+
       this.parsingPSD(docTree, psdFile);
     },
     /**
