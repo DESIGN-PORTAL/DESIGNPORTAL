@@ -4,7 +4,7 @@
       <!-- 文件选择 -->
       <div v-show="!importing" class="import-modal">
         <h2 class="title">导入PSD</h2>
-        <BUpload class="btn-import" accept=".psd" toUrl @change="handleFileChange">
+        <BUpload class="btn-import" accept=".psd" :limit="55" toUrl @change="handleFileChange">
           <div>+<span>导入PSD源文件</span></div>
         </BUpload>
         <div class="option">
@@ -53,6 +53,7 @@
 <script>
 import { creator } from '../../factory';
 import { dataURLtoFile } from '../../assets/js/utils';
+import { uploadResource } from '../../services/file';
 
 let PSD = null;
 
@@ -129,7 +130,7 @@ export default {
             const file = dataURLtoFile(png.src, `psdImport${layer.name}.png`);
             const formData = new FormData();
             formData.append('file', file);
-            const imgUrl = await this.$store.dispatch('common/uploadImg', formData);
+            const imgUrl = await uploadResource(formData);
 
             const imgLayer = creator('Image');
             layers.push(
@@ -228,7 +229,7 @@ export default {
       const file = dataURLtoFile(img.src, `psdImport.png`);
       const formData = new FormData();
       formData.append('file', file);
-      const imgUrl = await this.$store.dispatch('common/uploadImg', formData);
+      const imgUrl = await uploadResource(formData);
 
       const imgLayer = creator('Image');
       layers.push(
