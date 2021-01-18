@@ -2,6 +2,20 @@
   <div class="page-about">
     <ul>
       <li>
+        <h2>GitHub地址</h2>
+        <ol>
+          <li>
+            <a href="https://github.com/DESIGN-PORTAL/DESIGNPORTAL" target="_blank">前端</a>
+          </li>
+          <li>
+            <a href="https://github.com/DESIGN-PORTAL/DESIGNPORTAL-BE" target="_blank">服务端</a>
+          </li>
+          <li>
+            <a href="https://github.com/DESIGN-PORTAL/DESIGNPORTAL-VIEWER" target="_blank">预览页</a>
+          </li>
+        </ol>
+      </li>
+      <li>
         <h2>声明</h2>
         <ol>
           <li>

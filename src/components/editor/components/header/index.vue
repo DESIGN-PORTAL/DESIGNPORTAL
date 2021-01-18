@@ -31,7 +31,7 @@
         </BButton>
       </BButtonGroup>
 
-      <BButton style="margin-left: 20px;" @click="$router.push('/')">退出</BButton>
+      <BButton type="primary" style="margin-left: 20px;" @click="$router.push('/')">首页</BButton>
     </div>
 
     <musicDialog v-if="musicDialogState" @close="musicDialogState = false" />

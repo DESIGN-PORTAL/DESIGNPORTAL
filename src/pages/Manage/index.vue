@@ -176,7 +176,18 @@ a {
       text-align: right;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      padding: 0 20px;
+      > a {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+        color: #000;
+        img {
+          margin-right: 5px;
+        }
+      }
       > iframe {
         width: 250px;
         height: 30px;
