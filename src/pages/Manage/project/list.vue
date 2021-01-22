@@ -9,7 +9,12 @@
         <span class="title">创建项目</span>
       </div>
       <div class="project" v-for="project in list" :key="project.id">
-        <img :src="project.coverImg" alt="">
+        <div class="cover-img">
+          <img v-if="project.coverImg" :src="project.coverImg" alt="">
+        </div>
+        <div class="name">
+          {{ project.name }}
+        </div>
         <div class="options">
           <div class="option" @click="previewId = project.id">
             <i class="iconfont iconyulan"></i>预览
@@ -30,6 +35,8 @@
       :size.sync="pageSize"
       :page.sync="page"
       :total="total"
+      @change="handleChangePage"
+      @changeSize="handleChangechangeSize"
     />
 
     <ProjectPreview
@@ -96,6 +103,21 @@ export default {
 
       this.$store.dispatch(`${moduleName}/getList`, data);
     },
+    /**
+     * 切换页面
+     */
+    handleChangePage(page) {
+      this.page = page;
+      this.getList();
+    },
+    /**
+     * 切换分页条数
+     */
+    handleChangechangeSize(size) {
+      this.page = 1;
+      this.pageSize = size;
+      this.getList();
+    },
     handleClickCreate() {
       this.$router.push('/editor');
     },
@@ -113,27 +135,43 @@ export default {
     flex-wrap: wrap;
     .project {
       width: 240px;
-      height: 360px;
-      background-color: #ffffff;
-      cursor: pointer;
+      height: 386px;
       transition: all 0.3s ease-in-out;
       border-radius: 2px;
       position: relative;
       margin-bottom: 20px;
-      img {
+      .cover-img {
         width: 100%;
         height: calc(100% - 40px);
         display: block;
+        background-color: #ffffff;
+        img {
+          height: 100%;
+          width: 100%;
+        }
       }
 
-      .options {
+      .name {
         position: absolute;
         bottom: 0;
         left: 0;
         height: 40px;
         width: 100%;
         line-height: 40px;
-        display: flex;
+        text-align: center;
+        color: #3e3e3e;
+      }
+
+      .options {
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        cursor: pointer;
+        display: none;
         .option {
           flex: 1;
           text-align: center;
@@ -162,6 +200,7 @@ export default {
         transform: scale(1.02);
         .options {
           border-top: 1px solid #ccc;
+          display: flex;
         }
       }
     }
@@ -171,6 +210,7 @@ export default {
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      background-color: #ffffff;
       .title {
         margin-top: 16px;
         font-size: 17px;

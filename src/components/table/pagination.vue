@@ -149,6 +149,16 @@ export default {
     // &:last-of-type {
     //   margin-right: 20px;
     // }
+
+
+    &:hover {
+      .arrow {
+        &::after {
+          border-right-color: @color-main;
+          border-bottom-color: @color-main;
+        }
+      }
+    }
   }
 
   .button-pre-page,
@@ -202,13 +212,6 @@ export default {
       border-right-color: #999;
       border-bottom-color: #999;
       transform: scale(0.8);
-    }
-
-    &:hover {
-      &::after {
-        border-right-color: @color-main;
-        border-bottom-color: @color-main;
-      }
     }
   }
 
